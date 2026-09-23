@@ -2,7 +2,7 @@
   "applinks": {
     "details": [
       {
-        "appIDs": ["ZF33T7KUSY.app.playorigins.origins"],
+        "appIDs": ["ZF33T7KUSY.io.github.playorigins"],
         "components": [
           { "/": "/invite/*", "comment": "Duel invite links open the invite screen in the app" }
         ]
