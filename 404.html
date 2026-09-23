@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ORIGINS</title>
+  <meta name="robots" content="noindex">
+  <!-- An invite URL carries its token, which is what accepting the duel needs. Nothing on
+       this page is loaded from anywhere else, and no-referrer stops the token going to
+       the App Store (or anywhere) when a link here is followed. -->
+  <meta name="referrer" content="no-referrer">
+  <link rel="icon" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <!--
+    GitHub Pages serves this file for every path that has no page, which makes it the one
+    place a duel invite link can land: https://playorigins.github.io/invite/<32 hex characters>.
+
+    With the app installed, iOS never loads this page: the link opens ORIGINS directly
+    (a universal link, set up by /.well-known/apple-app-site-association and the app's
+    associatedDomains). This page is what everyone else sees: someone without the app, or
+    anyone who opened the link some other way.
+  -->
+  <div class="page">
+    <header class="top">
+      <a class="wordmark" href="/">ORIGINS</a>
+      <p class="tagline">Where it started</p>
+    </header>
+
+    <main class="card center" id="invite" hidden>
+      <img class="hero-icon" src="/icon.png" alt="The ORIGINS app icon">
+      <p class="kicker">Duel invite</p>
+      <h1>You've been challenged!</h1>
+      <p>
+        A friend wants to duel you in ORIGINS: best of three games, five questions each.
+        Guess where each thing began by tapping a country on the globe.
+      </p>
+      <div class="buttons">
+        <a class="button" id="open-app" href="/">Open in ORIGINS</a>
+        <p id="store"></p>
+      </div>
+      <p class="note">
+        Invite links last 14 days and can be accepted once. If this one has already been
+        taken, ask your friend to send another.
+      </p>
+    </main>
+
+    <main class="card center" id="missing" hidden>
+      <p class="kicker">Not found</p>
+      <h1>Nothing here</h1>
+      <p>That page doesn't exist.</p>
+      <div class="buttons"><a class="button orange" href="/">Go home</a></div>
+    </main>
+
+    <footer class="bottom">
+      <a href="/support/">Support</a>
+      <a href="/privacy/">Privacy</a>
+    </footer>
+  </div>
+
+  <script>
+    // Set this once the app is live, e.g. 'https://apps.apple.com/app/id1234567890'.
+    var APP_STORE_URL = '';
+
+    (function () {
+      var match = /^\/invite\/([a-f0-9]{32})\/?$/.exec(window.location.pathname);
+      if (!match) {
+        document.getElementById('missing').hidden = false;
+        return;
+      }
+      document.title = "You've been challenged · ORIGINS";
+      // The app's own scheme (app.json "scheme": "origins"), for someone who has the app
+      // but opened the link in a browser. It goes to the same screen as the universal link.
+      document.getElementById('open-app').href = 'origins://invite/' + match[1];
+
+      var store = document.getElementById('store');
+      if (APP_STORE_URL) {
+        var link = document.createElement('a');
+        link.className = 'button orange';
+        link.href = APP_STORE_URL;
+        link.textContent = 'Get ORIGINS on the App Store';
+        store.appendChild(link);
+      } else {
+        store.className = 'note';
+        store.innerHTML = "<strong>Don't have the app yet?</strong> ORIGINS is coming soon to the App Store.";
+      }
+      document.getElementById('invite').hidden = false;
+    })();
+  </script>
+</body>
+</html>

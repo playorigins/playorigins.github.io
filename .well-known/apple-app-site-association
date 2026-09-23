@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["TEAMID.app.playorigins.origins"],
+        "components": [
+          { "/": "/invite/*", "comment": "Duel invite links open the invite screen in the app" }
+        ]
+      }
+    ]
+  }
+}

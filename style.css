@@ -1,0 +1,103 @@
+/* ORIGINS site. The app's own tokens (src/theme/tokens.ts) and fonts, served from here
+   rather than a font CDN so that visiting the privacy policy sends nobody your address. */
+
+@font-face { font-family: 'Caprasimo'; src: url('/fonts/Caprasimo_400Regular.ttf') format('truetype'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Figtree'; src: url('/fonts/Figtree_400Regular.ttf') format('truetype'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Figtree'; src: url('/fonts/Figtree_600SemiBold.ttf') format('truetype'); font-weight: 600; font-display: swap; }
+@font-face { font-family: 'Figtree'; src: url('/fonts/Figtree_700Bold.ttf') format('truetype'); font-weight: 700; font-display: swap; }
+
+:root {
+  --sky-top: #5bb4ee;
+  --sky-bottom: #2f95e0;
+  --green: #4cc35e;
+  --green-shadow: #2f8f3d;
+  --orange: #e8762c;
+  --orange-shadow: #b2540f;
+  --white: #ffffff;
+  --tile: #f1f6f9;
+  --ink: #1c2b18;
+  --body: #3c4a37;
+  --muted: #5e6b58;
+  --radius: 22px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Figtree', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--body);
+  background: linear-gradient(180deg, var(--sky-top) 0%, var(--sky-bottom) 100%) fixed;
+  background-color: var(--sky-bottom);
+}
+
+.page { max-width: 720px; margin: 0 auto; padding: 20px 16px 48px; }
+
+header.top { text-align: center; padding: 16px 0 20px; }
+.wordmark {
+  font-family: 'Caprasimo', Georgia, serif;
+  font-size: 34px;
+  letter-spacing: 1px;
+  color: var(--white);
+  text-decoration: none;
+  text-shadow: 0 3px 0 rgba(0, 0, 0, 0.12);
+}
+.tagline { margin: 2px 0 0; color: rgba(255, 255, 255, 0.92); font-weight: 600; font-size: 14px; }
+
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 24px 22px;
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.08);
+  margin-bottom: 16px;
+}
+
+h1, h2, h3 { color: var(--ink); line-height: 1.25; }
+h1 { font-family: 'Caprasimo', Georgia, serif; font-weight: 400; font-size: 30px; margin: 0 0 8px; }
+h2 { font-size: 19px; font-weight: 700; margin: 28px 0 8px; }
+h3 { font-size: 16px; font-weight: 700; margin: 20px 0 4px; }
+.kicker { font-size: 12px; font-weight: 700; letter-spacing: 1.3px; text-transform: uppercase; color: var(--orange); margin: 0 0 6px; }
+.meta { color: var(--muted); font-size: 14px; margin: 0 0 18px; }
+
+p, ul { margin: 0 0 12px; }
+ul { padding-left: 22px; }
+li { margin-bottom: 6px; }
+a { color: var(--orange); font-weight: 600; }
+strong { color: var(--ink); }
+
+table { width: 100%; border-collapse: collapse; margin: 8px 0 16px; font-size: 14px; }
+th, td { text-align: left; vertical-align: top; padding: 9px 8px; border-bottom: 1px solid var(--tile); }
+th { color: var(--ink); font-weight: 700; background: var(--tile); }
+.table-wrap { overflow-x: auto; }
+
+.button {
+  display: inline-block;
+  font-family: 'Figtree', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--white);
+  background: var(--green);
+  box-shadow: 0 5px 0 var(--green-shadow);
+  border-radius: 999px;
+  padding: 14px 28px;
+  margin: 6px 0 12px;
+}
+.button.orange { background: var(--orange); box-shadow: 0 5px 0 var(--orange-shadow); }
+.button:active { transform: translateY(3px); box-shadow: 0 2px 0 var(--green-shadow); }
+.button.orange:active { box-shadow: 0 2px 0 var(--orange-shadow); }
+.buttons { text-align: center; }
+.note { font-size: 14px; color: var(--muted); }
+.center { text-align: center; }
+
+.hero-icon { width: 96px; height: 96px; border-radius: 22px; display: block; margin: 0 auto 14px; box-shadow: 0 6px 0 rgba(0, 0, 0, 0.1); }
+
+footer.bottom { text-align: center; font-size: 14px; color: rgba(255, 255, 255, 0.92); margin-top: 24px; }
+footer.bottom a { color: var(--white); margin: 0 8px; }
